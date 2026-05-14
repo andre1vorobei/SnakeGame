@@ -1,0 +1,9 @@
+tags
+
+build/*
+
+*.lo
+*.o
+*.obj
+
+*.swp
