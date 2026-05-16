@@ -15,6 +15,8 @@ class GameManager {
 
         void ChangeState(GameState *new_state);
 
+        void Run();
+
         void test() {
             state->Render();
             state->Update();

@@ -6,7 +6,7 @@
 int main() {
     GameManager *manager = GameManager::GetInstance();
     manager->ChangeState(new MenuState());
-    manager->test();
+    manager->Run();    
 
     return 0;
 }
