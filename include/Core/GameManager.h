@@ -4,8 +4,8 @@
 #include "Command.h"
 #include "Snake.h"
 
-const int defaultH = 23;
-const int defaultW = 42;
+const int defaultH = 12;
+const int defaultW = 24;
 
 
 class GameManager {

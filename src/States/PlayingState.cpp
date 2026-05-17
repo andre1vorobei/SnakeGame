@@ -13,15 +13,16 @@ void PlayingState::Render() {
     //debug 
     std::cout << "FieldSize: " << snake->GetFieldWidth() << " " << snake->GetFieldHeigh() << std::endl;
     std::cout << "Snake Head: " << snake->GetHead().x << " " << snake->GetHead().y << std::endl;
+    std::cout << "Food: " << snake->GetFood().x << " " << snake->GetFood().y << std::endl;
 
     // верняя граница
-    for (int x = 0; x <= defaultW + 1; x++) std::cout << "#";
+    for (int x = 0; x <= defaultW + 2; x++) std::cout << "#";
     std::cout << std::endl;
 
     // поле
-    for (int y = 0; y < defaultH; y++) {
+    for (int y = 0; y < defaultH+1; y++) {
         std::cout << "#";
-        for (int x = 0; x <= defaultW - 1; x++) {
+        for (int x = 0; x <= defaultW; x++) {
             bool isSpace = true;
 
             Point food = snake->GetFood();
@@ -51,7 +52,7 @@ void PlayingState::Render() {
     }
                 
     // нижняя граница
-    for (int x = 0; x <= defaultW + 1; x++) std::cout << "#";
+    for (int x = 0; x <= defaultW + 2; x++) std::cout << "#";
     std::cout << std::endl;
 }
 

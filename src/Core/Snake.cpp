@@ -41,16 +41,16 @@ void Snake::Move() {
     Point new_head = GetHead();
     switch (dir) {
         case(UP):
-            new_head.y += 1;
-            break;
-        case(DOWN):
             new_head.y -= 1;
             break;
+        case(DOWN):
+            new_head.y += 1;
+            break;
         case(LEFT):
-            new_head.x += 1;
+            new_head.x -= 1;
             break;
         case(RIGHT):
-            new_head.x -= 1;
+            new_head.x += 1;
             break;
     }
 
@@ -77,7 +77,7 @@ const std::deque<Point>& Snake::GetBody() const {
 
 bool Snake::IsCollided() {
     Point head = GetHead();
-    if (head.x == fieldW || head.y == fieldH || IsSelfCollided()) 
+    if (head.x > fieldW || head.x < 0 || head.y > fieldH || head.y < 0 || IsSelfCollided()) 
         return true;
     return false;
 }

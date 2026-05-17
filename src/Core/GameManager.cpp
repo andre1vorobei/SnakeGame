@@ -44,6 +44,6 @@ void GameManager::Run() {
 
         Update();
         Render();
-        sleep(1);
+        usleep(500000);
     }
 }
