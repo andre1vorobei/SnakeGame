@@ -15,7 +15,7 @@ int Kbhit() {
         // Use termios to turn off line buffering
         termios term;
         tcgetattr(STDIN, &term);
-        term.c_lflag &= ~(ICANON | ECHO);
+        term.c_lflag &= ~(ICANON | ECHO); // modified by Andrei Chernov
         tcsetattr(STDIN, TCSANOW, &term);
         setbuf(stdin, NULL);
         initialized = true;

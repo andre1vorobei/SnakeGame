@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameState.h"
+#include "Command.h"
 
 class GameManager {
     private:
@@ -16,6 +17,11 @@ class GameManager {
         void ChangeState(GameState *new_state);
 
         void Run();
+
+        Command* InputHandler(char input);
+
+        void Update();
+        void Render();
 
         void test() {
             state->Render();

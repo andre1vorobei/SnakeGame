@@ -7,4 +7,5 @@ class MenuState : public GameState {
     public: 
         void Update();
         void Render();
+        Command* InputHandler(char input);
 };
