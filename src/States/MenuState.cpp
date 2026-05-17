@@ -1,7 +1,6 @@
 #include "States/MenuState.h"
 #include "States/PlayingState.h"
 #include "Commands/ChangeStateCommand.h"
-
 #include <iostream>
 
 void MenuState::Render() {
@@ -15,7 +14,7 @@ void MenuState::Update() {
 
 Command* MenuState::InputHandler(char input) {
     switch (input) {
-        case 's': return new ChangeStateCommand(new PlayingState());
+        case 's': return new ChangeStateCommand(new PlayingState(GameManager::GetInstance()->GetSnake()));
         default:
             return nullptr;
     }

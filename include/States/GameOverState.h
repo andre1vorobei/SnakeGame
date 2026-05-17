@@ -5,6 +5,7 @@
 
 class GameOverState : public GameState {
     public: 
+        Command *InputHandler(char input);
         void Update();
         void Render();
 };

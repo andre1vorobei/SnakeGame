@@ -1,6 +1,6 @@
 BUILD_DIR=build
 
-.PHONY: all cmake clear help
+.PHONY: all cmake cmake_debug debug run clear help
 
 all: cmake
 	$(MAKE) -C $(BUILD_DIR)
@@ -15,6 +15,9 @@ cmake:
 cmake_debug: 
 	@mkdir -p $(BUILD_DIR)
 	cd $(BUILD_DIR) && cmake $(CURDIR) -DCMAKE_BUILD_TYPE=Debug
+
+run: 
+	@./$(BUILD_DIR)/Snake
 
 clean:
 	@rm -rf $(BUILD_DIR)

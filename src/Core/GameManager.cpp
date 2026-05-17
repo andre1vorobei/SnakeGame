@@ -4,7 +4,11 @@
 #include <cstdio>
 
 
-GameManager::GameManager() { 
+GameManager::GameManager() : snake(new Snake(defaultH, defaultW)) { 
+}
+
+Snake *GameManager::GetSnake() {
+    return snake;
 }
 
 GameManager *GameManager::GetInstance() {
