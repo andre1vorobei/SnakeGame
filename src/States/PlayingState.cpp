@@ -16,24 +16,31 @@ void PlayingState::Render() {
     std::cout << "Food: " << snake->GetFood().x << " " << snake->GetFood().y << std::endl;
 
     // верняя граница
+    std::cout << "\033[1;43m";
     for (int x = 0; x <= defaultW + 2; x++) std::cout << "#";
+    std::cout << "\033[0m";
     std::cout << std::endl;
 
     // поле
     for (int y = 0; y < defaultH+1; y++) {
+        std::cout << "\033[1;43m";
         std::cout << "#";
+        std::cout << "\033[0m";
         for (int x = 0; x <= defaultW; x++) {
             bool isSpace = true;
 
             Point food = snake->GetFood();
             if (food.x == x && food.y == y) {
                 isSpace = false;
-                std::cout << "F";
+                std::cout << "\033[1;31m";
+                std::cout << "0";
+                std::cout << "\033[0m";
             }
             
             if (isSpace) {
                 for (Point segment : snake->GetBody()) {
                     if (segment.x == x && segment.y == y) {
+                        std::cout << "\033[1;32m";
                         isSpace = false;
                         Point head = snake->GetHead();
                         if (segment.x == head.x && segment.y == head.y) {
@@ -41,6 +48,7 @@ void PlayingState::Render() {
                         } else {
                             std::cout << "o";
                         }
+                        std::cout << "\033[0m";
                         break;
                     }
                 }
@@ -48,11 +56,15 @@ void PlayingState::Render() {
             if (isSpace)
                 std::cout << " ";
         }
+        std::cout << "\033[1;43m";
         std::cout << "#" << std::endl;
+        std::cout << "\033[0m";
     }
                 
     // нижняя граница
+    std::cout << "\033[1;43m";
     for (int x = 0; x <= defaultW + 2; x++) std::cout << "#";
+    std::cout << "\033[0m";
     std::cout << std::endl;
 }
 

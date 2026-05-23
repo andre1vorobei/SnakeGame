@@ -11,6 +11,11 @@ Snake *GameManager::GetSnake() {
     return snake;
 }
 
+void GameManager::ResetSnake() {
+    delete snake;
+    snake = new Snake(defaultH, defaultW);
+}
+
 GameManager *GameManager::GetInstance() {
     static GameManager manager;
     return &manager;

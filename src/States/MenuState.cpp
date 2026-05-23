@@ -1,12 +1,38 @@
 #include "States/MenuState.h"
 #include "States/PlayingState.h"
 #include "Commands/ChangeStateCommand.h"
+#include "Commands/QuitCommand.h"
+
 #include <iostream>
+
+MenuState::MenuState() {
+    GameManager *gm = GameManager::GetInstance();
+    gm->ResetSnake();
+}
 
 void MenuState::Render() {
     std::cout << "\033[2J\033[H";
-    std::cout << "Menu Render" << std::endl;
-    std::cout << "press s to start" << std::endl;
+
+    std::cout << std::endl << std::endl;
+
+    std::cout << "\033[1;32m";
+    std::cout << " ░▒▓███████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓████████▓▒░ " << std::endl; 
+    std::cout << "░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        " << std::endl; 
+    std::cout << "░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        " << std::endl; 
+    std::cout << " ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░░▒▓██████▓▒░        ░▒▓█▓▒▒▓███▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░   " << std::endl; 
+    std::cout << "       ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        " << std::endl; 
+    std::cout << "       ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        " << std::endl; 
+    std::cout << "░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░ " << std::endl; 
+                                                                                                                                     
+    std::cout << std::endl << std::endl;
+
+    std::cout << "\033[1;33m";
+    std::cout << "[s] - Start New Game" << std::endl;
+
+    std::cout << "\033[1;36m";
+    std::cout << "[q] - Quit" << std::endl;
+
+    std::cout << "\033[0m";
 }
 
 void MenuState::Update() {
@@ -16,6 +42,7 @@ void MenuState::Update() {
 Command* MenuState::InputHandler(char input) {
     switch (input) {
         case 's': return new ChangeStateCommand(new PlayingState(GameManager::GetInstance()->GetSnake()));
+        case 'q': return new QuitCommand();
         default:
             return nullptr;
     }

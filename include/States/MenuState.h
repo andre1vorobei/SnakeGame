@@ -5,6 +5,7 @@
 
 class MenuState : public GameState {
     public: 
+        MenuState();
         void Update();
         void Render();
         Command* InputHandler(char input);

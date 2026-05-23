@@ -4,8 +4,8 @@
 #include "Command.h"
 #include "Snake.h"
 
-const int defaultH = 12;
-const int defaultW = 24;
+const int defaultH = 24;
+const int defaultW = 48;
 
 
 class GameManager {
@@ -17,6 +17,8 @@ class GameManager {
 
     public:
         Snake *GetSnake();
+        void ResetSnake();
+
         GameManager(const GameManager&) = delete;
 
         static GameManager *GetInstance();
@@ -29,10 +31,5 @@ class GameManager {
 
         void Update();
         void Render();
-
-        void test() {
-            state->Render();
-            state->Update();
-        }
 
 };
